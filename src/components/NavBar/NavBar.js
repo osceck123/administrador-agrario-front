@@ -6,8 +6,20 @@ export default function Navbar({ isLoggedIn }) {
     <nav className='w-full bg-[#D9CA7E] py-4 flex flex-row flex-nowrap'>
       {isLoggedIn ? (
         <>
+        {/*seccion para la imagen del logo*/}
+        <div className=' w-2/12 flex justify-center py-1'>
+            <Image src={"./next.svg"} width={150} height={150} alt='logo' />
+        </div>
+        {/*link para recorrer la pagina*/}
+        <ul className='w-8/12 flex text-center font-semibold text-black mx-1 py-1 px-8'>
           <Link href="/profile">Perfil</Link>
-          <button onClick={() => localStorage.removeItem('token')}>Cerrar Sesión</button>
+        </ul>
+        {/*botonoes de inicion y registrar*/}
+        <ul className='w-2/12 flex justify-center py-1 text-center space-x-4'>
+          <button
+          className='px-4  rounded-sm text-lg bg-[#8C6F56]' 
+          onClick={() => localStorage.removeItem('token')}>Cerrar Sesión</button>
+        </ul>
         </>
       ) : (
         <>

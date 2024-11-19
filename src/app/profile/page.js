@@ -8,18 +8,20 @@ export default function Profile() {
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
-      getUserProfile(token).then(({ data }) => setUser(data));
+      getUserProfile(token).then(({ data }) => {
+        console.log(data, "que tiene data"),
+        setUser(data)});
     }
   }, []);
 
   if (!user) return <p>Cargando perfil...</p>;
 
   return (
-    <div>
+    <section className='bg-green-200 h-screen text-black'>
       <h1>Perfil</h1>
       <p>Nombre: {user.firstName}</p>
       <p>Apellido: {user.lastName}</p>
       <p>Email: {user.email}</p>
-    </div>
+    </section>
   );
 }

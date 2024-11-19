@@ -16,6 +16,8 @@ export default function Login() {
       const { data } = await login({ email, password });
       console.log(data, "que tiene data")
       localStorage.setItem('token', data.token);
+      localStorage.setItem('user', data.user);
+
       router.push('/profile');
     } catch (error) {
       console.error('Error al iniciar sesión:', error);
